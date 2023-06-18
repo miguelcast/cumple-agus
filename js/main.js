@@ -1,6 +1,28 @@
 var $cards = document.querySelector(".card");
 var $style = document.querySelector(".hover");
 
+function getParameterByName(name) {
+  name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+  var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(location.search);
+  return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+(function init() {
+  var $welcomename = document.querySelector('.welcome-text');
+  var name = getParameterByName('name');
+  $welcomename.textContent = "Hola " + name;
+
+  var $date = document.querySelector('.date-hbd');
+  var date = getParameterByName('date')
+  $date.textContent = date;
+
+  var $address = document.querySelector('.address');
+  var address = getParameterByName('address')
+  $address.textContent = address + " #58 - 19";
+
+})()
+
 $cards.addEventListener("mousemove", (e) => {
   var $card = document.querySelector('.pika');
   var l = e.offsetX;

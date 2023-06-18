@@ -370,7 +370,7 @@ textarea {
   display: block;
   vertical-align: middle;
   margin: 20px 10px;
-  animation: holoCard 15s ease infinite;
+  animation: holoCard 10s ease infinite;
   transform-origin: center;
   z-index: 10;
   overflow: hidden;
@@ -519,19 +519,12 @@ textarea {
   position: relative;
   z-index: 1;
   transform: translate3d(0.1px, 0.1px, 0.1px );
-  animation: appear 1s ease-in-out;
-  animation-delay: 300ms;
 }
 
 .tac {
   max-width: 500px;
   margin: 0 auto;
   text-align: center;
-}
-
-@keyframes appear {
-  0% { opacity: 0 }
-  100% { opacity: 1 }
 }
 
 @keyframes show-name {
@@ -621,9 +614,7 @@ textarea {
   display: flex;
   align-items: center;
   line-height: 0.6rem;
-  animation: holoCard 30s ease-in-out infinite,
-            appear 1s ease-in-out;
-  animation-delay: 600ms;
+  animation: holoCard 30s ease-in-out infinite;
 }
 
 .map img {
@@ -648,9 +639,7 @@ textarea {
   display: flex;
   align-items: center;
   line-height: 0.6rem;
-  animation: holoCard 30s ease-in-out infinite,
-             appear 1s ease-in-out;
-  animation-delay: 900ms;
+  animation: holoCard 30s ease-in-out infinite;
 }
 
 .when img {
@@ -668,3 +657,7 @@ textarea {
   max-width: 400px;
 }
 
+.welcome {
+  text-align: center;
+  font-size: 1.2rem;
+}
