@@ -24,6 +24,7 @@ html {
 }
 
 body {
+  background-color: #79c9f9;
   background-image: url("/img/bg.png");
   background-repeat: no-repeat;
   background-size: cover;
