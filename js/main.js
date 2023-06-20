@@ -11,7 +11,7 @@ function getParameterByName(name) {
 (function init() {
   var $welcomename = document.querySelector('.welcome-text');
   var name = getParameterByName('name');
-  $welcomename.textContent = "Hola " + name;
+  $welcomename.textContent = "Hola " + name + ", te invito a una divertida tarde capturando pokemones";
 
   var $date = document.querySelector('.date-hbd');
   var date = getParameterByName('date')
@@ -20,7 +20,6 @@ function getParameterByName(name) {
   var $address = document.querySelector('.address');
   var address = getParameterByName('address')
   $address.textContent = address + " #58 - 19";
-
 })()
 
 $cards.addEventListener("mousemove", (e) => {
@@ -63,10 +62,14 @@ $pokeball.addEventListener('click', () => {
   const $map = document.querySelector('.map');
   const $when = document.querySelector('.when');
   const $team = document.querySelector('.team');
+  const $welcome = document.querySelector('.welcome');
+  const $confirm = document.querySelector('.confirm');
   $cardsWrapper.classList.remove('hide')
   $name.classList.remove('hide')
   $map.classList.remove('hide')
   $when.classList.remove('hide')
   $team.classList.remove('hide')
+  $confirm.classList.remove('hide')
   $pokeball.classList.add('hide')
+  $welcome.classList.add('hide')
 })

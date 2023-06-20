@@ -297,7 +297,7 @@ textarea {
   overflow: hidden;
   box-shadow: inset -10px 10px 0 10px #ccc;
   animation: fall .25s ease-in-out,
-  shake 1.25s cubic-bezier(.36,.07,.19,.97) 3;
+  shake 10s cubic-bezier(.36,.07,.19,.97) 2;
 }
 .pokeball::before,
 .pokeball::after {
@@ -326,7 +326,7 @@ textarea {
   border-radius: 50%;
   z-index: 10;
   box-shadow: 0 0 0 10px black;
-  animation: blink .5s alternate 7;
+  animation: blink .5s alternate 14;
 }
 /* Animation */
 @keyframes blink {
@@ -336,11 +336,32 @@ textarea {
 
 @keyframes shake {
   0% { transform: translate(0, 0) rotate(0); }
+  4% { transform: translate(-10px, 0) rotate(-20deg); }
+  6% { transform: translate(10px, 0) rotate(20deg); }
+  8% { transform: translate(-10px, 0) rotate(-10deg); }
+  11% { transform: translate(10px, 0) rotate(10deg); }
+  15% { transform: translate(0, 0) rotate(0); }
+
+  17% { transform: translate(0, 0) rotate(0); }
   20% { transform: translate(-10px, 0) rotate(-20deg); }
-  30% { transform: translate(10px, 0) rotate(20deg); }
-  50% { transform: translate(-10px, 0) rotate(-10deg); }
-  60% { transform: translate(10px, 0) rotate(10deg); }
-  100% { transform: translate(0, 0) rotate(0); }
+  23% { transform: translate(10px, 0) rotate(20deg); }
+  25% { transform: translate(-10px, 0) rotate(-10deg); }
+  28% { transform: translate(10px, 0) rotate(10deg); }
+  32% { transform: translate(0, 0) rotate(0); }
+
+  35% { transform: translate(0, 0) rotate(0); }
+  38% { transform: translate(-10px, 0) rotate(-20deg); }
+  40% { transform: translate(10px, 0) rotate(20deg); }
+  43% { transform: translate(-10px, 0) rotate(-10deg); }
+  47% { transform: translate(10px, 0) rotate(10deg); }
+  50% { transform: translate(0, 0) rotate(0); }
+
+  55% { transform: scale(110%) }
+  60% { transform: scale(90%) }
+  70% { transform: scale(110%) }
+  80% { transform: scale(90%) }
+  90% { transform: scale(110%) }
+  100% { transform: scale(100%) }
 }
 
 @keyframes fall {
@@ -448,6 +469,7 @@ textarea {
   display: none;
   visibility: hidden;
   opacity: 0;
+  height: 0;
 }
 
 .card.active:before,
@@ -605,7 +627,7 @@ textarea {
 }
 
 .map {
-  margin: 2.5rem auto 0;
+  margin: 2rem auto;
   max-width: 400px;
   width: 90%;
   height: 90px;
@@ -630,7 +652,7 @@ textarea {
 }
 
 .when {
-  margin: 2rem auto;
+  margin: 4rem auto 0;
   width: 90%;
   max-width: 400px;
   height: 90px;
@@ -659,6 +681,84 @@ textarea {
 }
 
 .welcome {
+  position: relative;
   text-align: center;
-  font-size: 1.2rem;
+  animation: fall 600ms ease-in-out;
+}
+
+.welcome img {
+  position: absolute;
+  right: 0;
+  top: 80%;
+  transform: rotate(-10deg);
+}
+
+.welcome-text {
+  font-size: 2rem;
+}
+
+.confirm {
+  text-decoration: none;
+  margin: 5rem auto 4rem;
+  padding-left: 2rem;
+  width: 90%;
+  max-width: 400px;
+  height: 90px;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  background-color: rgb(14, 197, 128);
+  border-radius: 50px;
+
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-clip: padding-box;
+
+  border: 6px solid rgba(255,255,255,0.45);
+}
+
+.confirm:before {
+  content: "";
+  width: 100%;
+  height:100%;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  border-radius: 50px;
+  z-index: -1;
+  filter: blur(14px);
+}
+
+.confirm:after {
+  content: "";
+  width: 100%;
+  height:100%;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border-radius: 50px;
+  z-index: -1;
+  filter: blur(14px);
+}
+.confirm {
+  background-image: linear-gradient(90deg, #8ce0f1, #79f391);
+}
+.confirm:before {
+  background-image: linear-gradient(90deg, #1dc6e8, transparent);
+}
+.confirm:after {
+  background-image: linear-gradient(90deg, transparent, #19ec43);
+}
+
+
+.confirm .text-pokemon {
+  font-size: 1.5rem;
+}
+
+.confirm img {
+  position: relative;
+  height: 130px;
+  top: -18%;
+  right: -6%;
 }
