@@ -279,10 +279,10 @@ textarea {
 
 
 .center-on-page {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+  position: relative;
+  width: 100%;
+  display: grid;
+  place-content: center;
 }
 
 
@@ -688,13 +688,13 @@ textarea {
 
 .welcome img {
   position: absolute;
-  right: 0;
-  top: 80%;
+  right: -5%;
+  top: 90%;
   transform: rotate(-10deg);
 }
 
 .welcome-text {
-  font-size: 2rem;
+  font-size: 1.6rem;
 }
 
 .confirm {

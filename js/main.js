@@ -9,9 +9,12 @@ function getParameterByName(name) {
 }
 
 (function init() {
-  var $welcomename = document.querySelector('.welcome-text');
+  var $welcomename = document.querySelector('.welcome-name');
   var name = getParameterByName('name');
-  $welcomename.textContent = "Hola " + name + ", te invito a una divertida tarde capturando pokemones";
+  $welcomename.textContent = "Hola " + name;
+
+  var $welcomecontent = document.querySelector('.welcome-content');
+  $welcomecontent.textContent = "Te invito a una divertida tarde capturando pokemones";
 
   var $date = document.querySelector('.date-hbd');
   var date = getParameterByName('date')
