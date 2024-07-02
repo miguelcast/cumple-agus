@@ -283,12 +283,12 @@ h1 {
   top: 90%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
+  z-index: 10;
 }
 
 .button-container {
   display: flex;
   justify-content: center;
-  margin: 20px;
 }
 
 .button-3d {
