@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Banner from "./Banner";
 import "./SectionA.css";
 
-const steps = [0, 20, 60, 85, 100];
+const steps = [0, 20, 59, 85, 100];
 
 export default function SectionA(props) {
   const sectionRef = useRef(null);
@@ -415,7 +415,7 @@ export default function SectionA(props) {
             scaleY: opacityInfoButton,
           }}
         >
-          <h3>¡ Confirma aquí !</h3>
+          <h3>¡Confirma aquí!</h3>
         </motion.a>
 
         <div className="clyde">

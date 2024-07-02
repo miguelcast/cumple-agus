@@ -6,16 +6,15 @@
 
 h1,
 h2 {
-    /* font-family: "Bal-Astaral", sans-serif; */
-    font-family: "Super Squad", sans-serif;
-    color: var(--color-yellow);
-    font-size: 2rem;
+  font-family: "Press Start 2P", system-ui;
+  color: var(--color-yellow);
+  font-size: 1.8rem;
 }
 
 h1 {
     width: 85%;
     line-height: 2;
-    word-spacing: 3;
+    word-spacing: 3px;
     text-wrap: balance;
     padding: 0;
     margin: 0;
@@ -43,21 +42,20 @@ h1 {
         transform: translateY(-50%) translateX(-50%);
 
         h2 {
-            font-family: "Super Squad", sans-serif;
-            text-align: center;
-            word-spacing: 4;
-            font-size: 2rem;
+          font-family: "Press Start 2P", system-ui;
+          text-align: center;
+          word-spacing: 3px;
+          font-size: 1.8rem;
         }
 
         h2.small {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
         }
 
         h2.big {
-            font-family: "Courier New", Courier, monospace;
             font-weight: bold;
-            color: red;
-            font-size: 6rem;
+            color: #f11c23;
+            font-size: 5rem;
             line-height: 0.6;
         }
     }
@@ -98,11 +96,11 @@ h1 {
         transform: translateY(-50%) translateX(-50%);
 
         & h3 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin-top: 3rem;
             margin-bottom: 0;
             color: var(--color-yellow);
-            font-family: "Super Squad", sans-serif;
+            font-family: "Press Start 2P", system-ui;
         }
 
         & p {
@@ -123,6 +121,7 @@ h1 {
             text-decoration: none;
             & h3 {
                 margin: 0;
+                font-size: 1.2rem;
                 color: var(--color-orange);
             }
         }

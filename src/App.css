@@ -31,7 +31,10 @@ html {
     --color-light-blue: #aed8e6;
     --color-yellow: #feff05;
     --color-orange: #ffb752;
+    --color-red: #f11c23;
     --radious: 8px;
+    --position-y: 5px;
+    --position-x: 5px;
 }
 
 body {
