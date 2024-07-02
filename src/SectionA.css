@@ -1,0 +1,279 @@
+.sprite {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+}
+
+h1,
+h2 {
+    /* font-family: "Bal-Astaral", sans-serif; */
+    font-family: "Super Squad", sans-serif;
+    color: var(--color-yellow);
+    font-size: 2rem;
+}
+
+h1 {
+    width: 85%;
+    line-height: 2;
+    word-spacing: 3;
+    text-wrap: balance;
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+.game {
+    min-height: 2000vh;
+
+    & #pac-man,
+    & .ghost {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .invite {
+        width: 80%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+
+        h2 {
+            font-family: "Super Squad", sans-serif;
+            text-align: center;
+            word-spacing: 4;
+            font-size: 2rem;
+        }
+
+        h2.small {
+            font-size: 1.5rem;
+        }
+
+        h2.big {
+            font-family: "Courier New", Courier, monospace;
+            font-weight: bold;
+            color: red;
+            font-size: 6rem;
+            line-height: 0.6;
+        }
+    }
+
+    .floating {
+        position: fixed;
+        animation: floating 8s ease-in-out infinite;
+        top: var(--position-y, 5px);
+        left: var(--position-x, 5px);
+    }
+
+    .floating:nth-child(2n) {
+        animation-delay: 300ms;
+        animation-direction: reverse;
+    }
+
+    .floating:nth-child(2n + 1) {
+        animation-delay: 600ms;
+        animation-direction: alternate;
+    }
+
+    .floating:nth-child(3n) {
+        animation-delay: 900ms;
+        animation-direction: reverse;
+    }
+
+    .floating:nth-child(5n) {
+        animation-delay: 1s;
+        animation-direction: alternate-reverse;
+    }
+
+    .info {
+        width: 95%;
+        position: fixed;
+        text-align: center;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+
+        & h3 {
+            font-size: 1.8rem;
+            margin-top: 3rem;
+            margin-bottom: 0;
+            color: var(--color-yellow);
+            font-family: "Super Squad", sans-serif;
+        }
+
+        & p {
+            padding-inline: 2rem;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-top: 8px;
+            margin-bottom: 0;
+            font-family: "Courier New", Courier, monospace;
+            color: var(--color-light-blue);
+        }
+
+        & .confirm {
+            display: inline-block;
+            margin-top: 3rem;
+            padding: 1rem;
+            border: 2px solid var(--color-orange);
+            text-decoration: none;
+            & h3 {
+                margin: 0;
+                color: var(--color-orange);
+            }
+        }
+    }
+}
+
+@keyframes floating {
+    0% {
+        transform: translateX(-13%) translateY(-12%);
+    }
+
+    30% {
+        transform: translateX(0%) translateY(14%);
+    }
+
+    60% {
+        transform: translateX(13%) translateY(-13%);
+    }
+
+    80% {
+        transform: translateX(-12%) translateY(11%);
+    }
+
+    100% {
+        transform: translateX(-13%) translateY(-12%);
+    }
+}
+
+.clyde {
+    background: #ff9f00;
+    width: 100px;
+    height: 110px;
+    border-radius: 50% 50% 0% 0%;
+    animation: ghostmove 5s 0.05s infinite linear;
+    position: absolute;
+    top: 110%;
+}
+
+.eye-left {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 30px;
+    left: 15px;
+    background: white;
+    border-radius: 50%;
+}
+
+.eye-right {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 30px;
+    left: 55px;
+    background: white;
+    border-radius: 50%;
+}
+
+.iris {
+    width: 10px;
+    height: 10px;
+    background: blue;
+    position: absolute;
+    top: 10px;
+    animation: eyes 5s infinite linear;
+    border-radius: 50%;
+}
+
+.black {
+    position: absolute;
+    bottom: -1px;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid var(--color-bg);
+}
+
+.black:nth-child(1) {
+    animation: black1 0.3s infinite linear;
+}
+.black:nth-child(2) {
+    animation: black2 0.3s infinite linear;
+}
+.black:nth-child(3) {
+    animation: black3 0.3s infinite linear;
+}
+.black:nth-child(4) {
+    animation: black4 0.3s infinite linear;
+}
+.black:nth-child(5) {
+    animation: black5 0.3s infinite linear;
+}
+
+@keyframes ghostmove {
+    0% {
+        left: 10%;
+    }
+    50% {
+        left: 70%;
+    }
+    100% {
+        left: 10%;
+    }
+}
+
+@keyframes eyes {
+    0% {
+        left: 20px;
+    }
+}
+
+@keyframes black1 {
+    from {
+        left: -30px;
+    }
+    to {
+        left: 0px;
+    }
+}
+
+@keyframes black2 {
+    from {
+        left: 0px;
+    }
+    to {
+        left: 30px;
+    }
+}
+
+@keyframes black3 {
+    from {
+        left: 30px;
+    }
+    to {
+        left: 60px;
+    }
+}
+@keyframes black4 {
+    from {
+        left: 60px;
+    }
+    to {
+        left: 90px;
+    }
+}
+@keyframes black5 {
+    from {
+        left: 90px;
+    }
+    to {
+        left: 120px;
+    }
+}

@@ -1,0 +1,99 @@
+/*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 2.1.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+:root {
+  --color-bg: #222;
+  --color-blue: #2222e2;
+  --color-text: #feff05;
+  --radious: 8px;
+}
+
+body {
+  background-color: var(--color-bg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100lvh;
+  padding: 0;
+  margin: 0;
+}
+
+.pacman-frame {
+  position: fixed;
+  top: 0;
+  padding: 0.5rem;
+  width: 100%;
+  height: 100%;
+
+  & .pacman-b {
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem;
+    border-radius: var(--radious);
+    border: 2px solid var(--color-blue);
+  }
+
+  & .pacman-b > .pacman-b {
+    --radious: 6px
+  }
+
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 80px;
+    background-color: var(--color-bg);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &::after {
+    right:  0;
+  }
+}
+
+.sprite {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+}
+
+h1 {
+  padding-top: 2rem;
+  font-family: 'Bal-Astaral', sans-serif;
+  color: var(--color-text);
+  text-align: center;
+}
+
+.game {
+  min-height: 500vh;
+
+  & #pac-man {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
