@@ -4,8 +4,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Banner from "./Banner";
 import "./SectionA.css";
 
+const steps = [0, 20, 60, 85, 100];
+
 export default function SectionA(props) {
   const sectionRef = useRef(null);
+  const currentStepRef = useRef(0);
   const { scrollYProgress } = useScroll();
 
   const translatePacman = useTransform(
@@ -93,9 +96,78 @@ export default function SectionA(props) {
   );
 
   const opacityInfo = useTransform(scrollYProgress, [0.95, 0.98], [0, 1]);
+  const opacityInfoButton = useTransform(
+    scrollYProgress,
+    [0, 0.93, 0.94, 1],
+    [0, 0, 1, 1],
+  );
+
+  function smoothScrollToPercentage(percentage, duration) {
+    let documentHeight = document.documentElement.scrollHeight;
+    let windowHeight = window.innerHeight;
+    let targetPosition = (documentHeight - windowHeight) * (percentage / 100);
+    let startPosition = window.pageYOffset;
+    let distance = targetPosition - startPosition;
+    let startTime = null;
+
+    function animation(currentTime) {
+      if (startTime === null) startTime = currentTime;
+      let timeElapsed = currentTime - startTime;
+      let progress = Math.min(timeElapsed / duration, 1);
+
+      // Usar una función de easing para un desplazamiento más suave
+      let ease = easeInOutQuad(progress);
+      window.scrollTo(0, startPosition + distance * ease);
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animation);
+      }
+    }
+
+    // Función de easing (puedes probar diferentes funciones para distintos efectos)
+    function easeInOutQuad(t) {
+      return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    }
+
+    requestAnimationFrame(animation);
+  }
+
+  function addScroll() {
+    currentStepRef.current =
+      currentStepRef.current === steps.length - 1
+        ? steps.length - 1
+        : currentStepRef.current + 1;
+    smoothScrollToPercentage(
+      steps[currentStepRef.current],
+      currentStepRef.current === 3 ? 6000 : 3000,
+    );
+  }
+
+  function revScroll() {
+    currentStepRef.current =
+      currentStepRef.current === 0 ? 0 : currentStepRef.current - 1;
+    smoothScrollToPercentage(steps[currentStepRef.current], 3000);
+  }
 
   return (
     <motion.section ref={sectionRef} className="game">
+      <motion.div className="button-container stepper">
+        <button onClick={revScroll} className="button-3d">
+          <div className="button-top">
+            <span className="material-icons">❮</span>
+          </div>
+          <div className="button-bottom"></div>
+          <div className="button-base"></div>
+        </button>
+        <button onClick={addScroll} className="button-3d">
+          <div className="button-top">
+            <span className="material-icons">❯</span>
+          </div>
+          <div className="button-bottom"></div>
+          <div className="button-base"></div>
+        </button>
+      </motion.div>
+
       <motion.img
         className="sprite ghost"
         style={{ left: translateGhost1 }}
@@ -321,7 +393,6 @@ export default function SectionA(props) {
         className="info"
         style={{
           opacity: opacityInfo,
-          display: opacityInfo === 0 ? "none" : "block",
         }}
       >
         <Banner />
@@ -336,13 +407,16 @@ export default function SectionA(props) {
           <p>City Park - CC Los Molinos</p>
         </div>
 
-        <a
+        <motion.a
           href="https://api.whatsapp.com/send?phone=573104892456&text=%F0%9F%8E%89%20Confirmo%20mi%20asistencia%20a%20divertirnos%20con%20Pacman%20%F0%9F%8E%88"
-          class="confirm"
+          className="confirm"
           target="_blank"
+          style={{
+            scaleY: opacityInfoButton,
+          }}
         >
           <h3>¡ Confirma aquí !</h3>
-        </a>
+        </motion.a>
 
         <div className="clyde">
           <div className="eye-left">
